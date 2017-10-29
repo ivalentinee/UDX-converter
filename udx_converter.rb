@@ -30,10 +30,10 @@ def write_contacts_vcf(contacts)
     contacts.each do |contact|
       vcf_record_string = <<~VCF_RECORD
         BEGIN:VCARD
-        VERSION:4.0
-        N:#{contact[:name]}
+        VERSION:2.1
+        N:#{contact[:name]};;;;
         FN:#{contact[:name]}
-        TEL;VALUE=uri:tel:#{contact[:phone]}
+        TEL;CELL:#{contact[:phone]}
         END:VCARD
       VCF_RECORD
 
